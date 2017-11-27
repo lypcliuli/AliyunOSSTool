@@ -1,5 +1,5 @@
 //
-//  AliyunOSSHander.h
+//  AliyunOSSTool.h
 //  StarCar
 //
 //  Created by LYPC on 2017/7/25.
@@ -24,7 +24,7 @@ typedef void(^DownloadSucceedListener)(NSString *succeedDisc);
 // 下载失败||保存到本地相册失败
 typedef void(^DownloadFaildListener)(NSString *faildDisc);
 
-@interface AliyunOSSHander : NSObject
+@interface AliyunOSSTool : NSObject
 
 
 @property (nonatomic,assign) DownloadSucceedListener downloadSucceedListener;

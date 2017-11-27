@@ -1,19 +1,19 @@
 //
-//  AliyunOSSHander.m
+//  AliyunOSSTool.m
 //  StarCar
 //
 //  Created by LYPC on 2017/7/25.
 //  Copyright © 2017年 com.cattsoft. All rights reserved.
 //
 
-#import "AliyunOSSHander.h"
+#import "AliyunOSSTool.h"
 #import <AliyunOSSiOS/OSSService.h>
 
 //视频存储路径
 #define VideoUrlPath   \
 [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"VideoURL"]
 
-@interface AliyunOSSHander() {
+@interface AliyunOSSTool() {
     OSSClient *client;
     NSString *endPoint;
     NSString *accessKeyId;
@@ -26,13 +26,13 @@
 
 @end
 
-@implementation AliyunOSSHander
+@implementation AliyunOSSTool
 
 + (instancetype)sharedInstance {
-    static AliyunOSSHander *instance;
+    static AliyunOSSTool *instance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        instance = [AliyunOSSHander new];
+        instance = [AliyunOSSTool new];
         [instance initOSSClient];
     });
     return instance;
@@ -100,7 +100,7 @@
     put.contentDisposition = @"";
     
     OSSTask * putTask = [client putObject:put];
-    __weak AliyunOSSHander *weakSelf = self;
+    __weak AliyunOSSTool *weakSelf = self;
     [putTask continueWithBlock:^id(OSSTask *task) {
         NSLog(@"objectKey: %@", put.objectKey);
         if (!task.error) {
