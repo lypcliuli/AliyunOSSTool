@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
      aliyunOSSTool.public_header_files = 'AliyunOSSTool/*.h'
      
   # 主模块(必须)
-     aliyunOSSHander.dependency 'AliyunOSSiOS'
+     aliyunOSSTool.dependency 'AliyunOSSiOS'
   end
 
 end
